@@ -1,9 +1,9 @@
-GCP_USER=markwkiehl@gmail.com
+GCP_USER=your_email_address@gmail.com
 GCP_SVC_ACT_PREFIX=svc-act-gcp-run-vol-mt
 GCP_PYTHON_VERSION=3.12
 PYTHON_FILENAME=gcp_run_vol_mt.py
 GCP_PROJ_ID=gcp-run-vol-mt-v0-1-0
-GCP_BILLING_ACCOUNT=014A74-1E1E07-BF009D
+GCP_BILLING_ACCOUNT=0X0X0X-0X0X0X-0X0X0X
 GCP_REGION=us-east4
 GCP_IMAGE=img-gcp-run-vol-mt
 GCP_REPOSITORY=repo-gcp-run-vol-mt
