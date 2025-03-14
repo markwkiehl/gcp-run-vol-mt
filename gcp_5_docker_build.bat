@@ -164,9 +164,9 @@ IF %ERRORLEVEL% NEQ 0 (
 
 echo.
 echo You can locally test running the Docker image with one of the following commands:
-echo docker run -it -v "%appdata%//gcloud"://root/.config/gcloud %GCP_IMAGE%:latest
+echo docker run -it -v "%appdata%\\gcloud"://root/.config/gcloud %GCP_IMAGE%:latest
 echo OR
-echo docker run -it -v "%appdata%//gcloud//application_default_credentials.json"://root/.config/gcloud/application_default_credentials.json %GCP_IMAGE%:latest
+echo docker run -it -v "%appdata%\\gcloud//application_default_credentials.json"://root/.config/gcloud/application_default_credentials.json %GCP_IMAGE%:latest
 echo.
 echo Option -v bind volume mounts the Google SDK folder
 echo Option -i keeps STDIN open even if not attached 
