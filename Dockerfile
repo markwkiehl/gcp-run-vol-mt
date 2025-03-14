@@ -33,9 +33,18 @@ RUN pip install --no-cache-dir -r requirements.txt
 # set the default executable for a container 
 ENTRYPOINT [ "python3" ]
 
-# Define the command to run your Python script
-#CMD ["${PY_SCRIPT_NAME}"]
+# Define the command to run your Python script (edit the filename if it changes).
+# For the format below, Docker executes the command directly without invoking a shell.
 CMD ["gcp_run_vol_mt.py"]
-#CMD ["python", "gcp_run_vol_mt.py"]
-#CMD ["python", "${PY_SCRIPT_NAME}"]
 
+# ARG or ENV substitution is not supported by the CMD command.  Must update the script filename above manually.  
+# FAILS: CMD ["${PY_SCRIPT_NAME}"]
+# FAILS: CMD ["$PY_SCRIPT_NAME"]
+# FAILS: CMD [${PY_SCRIPT_NAME}]
+# Shell methods:
+# FAILS: CMD "gcp_run_vol_mt.py"
+# FAILS: CMD gcp_run_vol_mt.py
+# FAILS: CMD python3 gcp_run_vol_mt.py
+# FAILS: CMD ${PY_SCRIPT_NAME}
+# FAILS: CMD "${PY_SCRIPT_NAME}"
+# FAILS: CMD "$PY_SCRIPT_NAME"

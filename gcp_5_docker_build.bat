@@ -93,7 +93,9 @@ echo configured with the Python file "%PYTHON_FILENAME%" and for Python version 
 echo The Python virtual environment requirements.txt file will be rebuilt from the current installed
 echo Python libraries and used by the Docker file.  
 echo. 
-echo IMPORTANT: Make sure the Docker Engine is running (Docker Desktop for Windows)
+echo IMPORTANT: 
+echo 1) Make sure the Docker Engine is running (Docker Desktop for Windows)
+echo 2) You must edit the file "Dockerfile" and at the end after "CMD" make sure the Python filename is correct.
 echo.
 echo Press ENTER to continue, or CTRL-C to abort.
 pause
@@ -150,9 +152,10 @@ rem Docker doesn't script well and causes termination of the batch file.
 rem For this reason, only the build command is executed in this batch file.
 rem The docker build command below takes two arguments, one for the Python version,
 rem and another for the Python script filename. 
+rem NOTE: ARG or ENV substitution is not supported by the CMD command in Dockerfile.  Must update the script filename in Dockerfile. 
 echo Building Docker image %GCP_IMAGE% ..
 @echo on
-CALL docker build --build-arg PY_VER=%GCP_PYTHON_VERSION% --build-arg PY_SCRIPT_NAME=%PYTHON_FILENAME% -t %GCP_IMAGE% .
+CALL docker build --build-arg PY_VER=%GCP_PYTHON_VERSION% -t %GCP_IMAGE% .
 @echo off
 IF %ERRORLEVEL% NEQ 0 (
 	echo ERROR %ERRORLEVEL%: 
